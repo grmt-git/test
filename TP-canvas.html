@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>L'élément canvas en html</title>
+        <meta charset="utf-8">
+        <style>
+              body {
+                margin: 0;
+                padding: 0;
+              }
+              #canvas1 {
+                border: 5px solid orange;
+              }
+              #canvas2 {
+               border: 5px solid red;
+            }
+              #image1 {display: none;
+              }
+        </style>
+    </head>
+    <body>
+         <h1 id="gros_titre">Le canvas</h1>
+         <div id="stage">
+         <img id='image1' src='puy-de-dome.jpg' alt='le Puy de Dome'>
+         <canvas id='canvas1' width="400" height="300"></canvas>
+         <canvas id='canvas2' width="400" height="300"></canvas>
+          </div>
+         <script>
+              var canvas = document.getElementById('canvas1');
+              var contexte = canvas.getContext('2d');
+              var image = document.getElementById('image1');
+
+              image.addEventListener('load', affiche);
+              function affiche(){
+                   contexte.drawImage(image, 25, 25, 350, 250);
+              };
+
+              var canvasdeux = document.getElementById('canvas2');
+               var contexte2 = canvasdeux.getContext('2d');
+
+               contexte2.translate(200,100);
+
+               //premier rectangle
+               contexte2.fillStyle = '#48A';
+               contexte2.fillRect(0,0,75,75);
+
+               //Second rectangle
+               contexte2.rotate(Math.PI/2);
+               contexte2.fillStyle = 'RGBa(64,192,128,0.6)';
+               contexte2.fillRect(0,0,75,75);
+
+               //Seconde rotation
+               contexte2.rotate(Math.PI/2);
+               contexte2.fillStyle = 'RGBa(192,64,192,0.6)';
+               contexte2.fillRect(0,0,75,75);
+
+
+         </script>
+    </body>
+</html>

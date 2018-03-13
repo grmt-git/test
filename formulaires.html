@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Les Formulaires</title>
+        <meta charset="utf-8">
+        <style>
+              label{
+                display: inline-block;
+                min-width: 200px;
+                margin-bottom: 10px;
+              }
+        </style>
+    </head>
+    <body>
+        <h1>Les Formulaires en HTML</h1>
+        <form method="post" action="traitement.php">
+          <label for="nom">Entrez votre nom : </label>
+          <input type="text" name="nom" id="nom" maxlength='20' required><br>
+          <span id="missNom"></span><br>
+
+          <label for="mail">Entrez votre mail : </label>
+          <input type="email" name="mail" id="mail" required><br>
+
+          <label for="tel">Entrez votre téléphone : </label>
+          <input type="tel" name="tel" id="tel" required><br>
+
+          <input type="submit" name="Valider" id="bouton_envoi">
+        </form>
+        <script>
+            var formValid = document.getElementById('bouton_envoi');
+            var nom = document.getElementById('nom');
+            var missNom = document.getElementById('missNom');
+            var nomValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
+
+            formValid.addEventListener('click', validation);
+            function validation(event){
+                if(nom.validity.valueMissing){
+                    event.preventDefault();
+                    missNom.textContent = "Nom manquant";
+                    missNom.style.color = 'red';
+                } else if (nomValid.test(nom.value)== false) {
+                    event.preventDefault();
+                    missNom.textContent = "Nom invalide";
+                    missNom.style.color = "orange";
+                }
+            }
+        </script>
+    </body>
+  </html>

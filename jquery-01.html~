@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Découverte de JQuery</title>
+		<meta charset='UTF-8'>
+		<style>
+			.p1{border:1px solid black;}		
+			.p2{border:1px solid red;}		
+		</style>
+	</head>
+	<body>
+		<h1>Découverte de JQuery</h1>	
+		<p class='p1'>Premier paragraphe</p>
+		<p class='p2'>Deuxième paragraphe</p>
+		<script src="jquery-3.2.1.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('.p2').hide(); 
+				
+				/*$('.p1').hover(
+					function(){$('.p2').show();},
+					function(){$('.p2').hide();}
+				);*/
+				$('.p1').mousedown(function () {
+					$('.p2').show();
+				})
+				$('.p1').mouseup(function () {
+					$('.p2').hide();
+				})
+			});
+		</script>
+	</body>
+</html>

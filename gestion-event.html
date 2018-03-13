@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Gestion avancée d'évenements en JQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div{
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Gestion avancée d'évenements en JQuery</h1>
+        <div class='div1'>
+            <p>Premier paragraphe</p>
+            <p>Second paragraphe</p>
+        </div>
+        <label for="fcs">Champ à focus</label>
+        <input type="text" id="fcs" placeholder="je veux le focus">
+        <div>
+            <button id="bt1">Pas de clic possible</button>
+            <button id="bt2">Ajout de gestionnaire d'event-click</button>
+            <button id="bt3">Suppr de gestionnaire d'event-click</button>
+            <span id='msg'>Bouton cliqué</span>
+        </div>
+        <div>
+            <button id="trg">Forcer le focus avec trigger</button>
+            <button id="trgh">Forcer le focus avec triggerHandler</button>
+        </div>
+        
+        <script src="jquery-3.2.1.js"></script>
+        <script>
+               $(document).ready(function(){
+//                   $('#msg').hide();
+//                   $('#bt2').click(function(){
+//                       $("#bt1").on('click', function(){
+//                            $('#msg').show();    
+//                       });
+//                       $("#bt1").text("Vous pouvez me cliquer");
+//                   });
+//                   $("#bt3").click(function(){
+//                       $('#msg').hide();
+//                       $("#bt1").off('click');
+//                       $("#bt1").text("Pas de clic possible");
+//                   });
+//                   $("#trg").click(function(){
+//                       $("#fcs").trigger('focus');
+//                       $("#fcs").css('background-color', 'pink');
+//                   });
+//                   $("#trgh").click(function(){
+//                       $("#fcs").triggerHandler('focus');
+//                       $("#fcs").css('background-color', 'white');
+//                   });
+//                   $("#fcs").focus(function(){
+//                       $('#msg').text("Evenement focus déclenché");
+//                   });
+                   $("p").on('click mouseover mouseout', function(e){
+                       $("#msg").text('Evenement declencheur: ' + e.type);
+                   });                  
+                });
+//                   $('.div1').on({
+//                        mouseenter: function(){
+//                              $('#msg').text('Vous etes entrés');
+//                          },
+//                        mouseleave: function(){
+//                           $('#msg').text('Vous etes sortis');
+//                        }
+//                   });
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Découverte de jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="jquery-3.2.1.js"></script>
+        <style>
+            .titre {color:blue;}
+        </style>
+    </head>
+    <body>
+        <h1 class='titre'>Manipulation de <mark>DOM</mark></h1>
+        <h2 class="t">Utilisation de attr()</h2>
+        <a> Un lien </a><br>
+        
+        <label for='prenom'>Entrez un prénom</label>
+        <input type="text" id='prenom' name="prenom"/>
+        <span id='sb1'></span><br>
+        <select multiple='multiple'>
+            <option> Option 1 </option>
+            <option> Option 2 </option>
+            <option> Option 3 </option>
+        </select>
+        <span id='sb2'></span><br>
+        <label for="c">Cochez moi / Décochez moi</label>
+        <input type="checkbox" id="c" checked="checked"/><br>
+        <span id='test'></span><br>
+        <script>
+            $(document).ready(function(){
+                //var titre = $('h1').html();
+                //$('h1').css('font-size','50px');
+                //var taille = $('h1').css('font-size');
+                //$('#test').text(taille);
+                //$('h1').html('<mark>DOM</mark> manipulé');
+                //$('#test').html(titre);
+                $('#prenom').keyup(function(){
+                    var valInput = $(this).val();
+                    $("#sb1").text(valInput);
+                });
+                $('select').change(function(){
+                    var valSelect = $('select').val() || [];
+                    $("#sb2").text(valSelect.join(', '));
+                });
+                var valAttr = $('h1').attr('class');
+                $("#test").text('Valeur de H1 : ' + valAttr);
+                $('h2').attr('class', 'titre');
+                $('a').attr({
+                        href : 'http://pierre-giraud.com',
+                        target : 'blank_'});
+                $('#c').change(function(){
+                    var v = $(this);
+                    $('#test').html(
+                        'Valeur attribut : ' + v.attr('checked') +
+                        '<br>Valeur de la propriété : ' + v.prop('checked'));
+                });
+            });
+        </script>
+    </body>
+</html>

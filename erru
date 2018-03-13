@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gestion des Erreurs</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+         <h1 id="gros_titre">Try...Throw...Catch</h1>
+         <label id="nb">
+          </div>
+         <script>
+
+         </script>
+    </body>
+</html>

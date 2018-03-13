@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gestion des cookies</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+         <h1>Les cookies en Javascript</h1>
+         <p id='cook'></p>
+         <script>
+               function creerCookie(nom,valeur,jour){
+                    if (jour) {
+                         var date = new Date();
+                         date.setTime(date.getTime()+(jour*24*60*60*1000));
+                         var exp = '; expires='+ date.toGMTString();
+                    }
+                    else {
+                         var exp = '';
+                    }
+                    document.cookie = nom + ' = ' + valeur + exp + '; path=/';
+               }
+               function lireCookie(nom){
+                    var nomEtEgal = nom + '=';
+                    var cTab = document.cookie.split(';');
+                    for(i=0;i<cTab.length;i++){
+                         var c = cTab[i];
+                         console.log(c);
+                         while (c.charAt(0)==' ') {c = c.substring(1,c.length);}
+                         if (c.indexOf(nomEtEgal)==0){
+                              return c.substring(nomEtEgal.length,c.length);
+                         }
+                    }
+                    return null;
+               }
+               function supprCookie(nom){
+                    lireCookie(nom,'',-1);
+               }
+               creerCookie('cookie1','je suis le premier cookie',7);
+               creerCookie('cookie2','je suis le second cookie',7);
+
+               var affiche = document.getElementById('cook');
+               affiche.innerHTML= 'Valeur : ' + lireCookie('cookie1')+'</BR> Valeur : ' + lireCookie('cookie2');
+          </script>
+    </body>
+</html>

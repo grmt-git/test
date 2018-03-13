@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gestion des Erreurs</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+         <h1 id="gros_titre">Try...Throw...Catch</h1>
+         <label for="nb">Entrez un nombre entre 1 et 10 :</label>
+         <input type="number" min="1" max="10" id="nb">
+         <button type="button" id="test">Valider</button>
+         <p id="msg"></p>
+
+         <script>
+               var b=document.getElementById("test");
+               b.addEventListener('click',testValeur);
+               function testValeur(){
+                    var p = document.getElementById('msg');
+                    var x = document.getElementById('nb').value;
+                    msg.innerHTML = x;
+
+                    try{
+                         if ((isNaN(x)) || (x=='')) {
+                              throw 'Vous n avez pas saisi de nombre';
+
+                         } else if ((x<1) || (x>10)) {
+                                   throw 'Vous n avez pas rentré de valeur comprise entre 1 et 10';
+                         } else {
+                              msg.innerHTML = "Nombre OK" ;
+                         }
+                    }
+                    catch(e){
+                         msg.innerHTML = e ;
+                    }
+                    finally{
+                         document.getElementById('nb').value = '';
+                    }
+               }
+         </script>
+    </body>
+</html>

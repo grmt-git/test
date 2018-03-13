@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Les expressions réguliéres</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1 id="gros_titre">Le Regex</h1>
+        <p>On apprend à utiliser ? les [regex] en Javascript en 2017?</p>
+        <p id="reg"></p>
+        <script>
+            var rec = document.querySelector('p').textContent;
+
+            var r1 = /./g;
+            var r2 = /\d/g;
+            var r3 = /\br/g;
+            var r4 = /\D/g;
+
+            var res1= r1.test(rec);
+            var res2= rec.match(r2);
+            var res3= rec.match(r3);
+            var res4= rec.match(r4);
+
+
+            var para = document.getElementById('reg');
+            para.innerHTML = "Regex 1 : " + res1 +
+            "<br> Regex 2 : " + res2 +
+            "<br> Regex 3 : " + res3 +
+            "<br> Regex 4: " + res4;
+
+        </script>
+    </body>
+</html>

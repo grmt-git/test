@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Découverte de jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            html, body, h1, ul, li, span{
+                color: black;
+                border: 2px solid green;
+                padding: 5px;
+                margin: 5px;
+                display: block;
+            }
+        </style>
+        <script src="jquery-3.2.1.js"></script>
+    </head>
+    <body>
+        <h1>Manipulation de DOM (elt h1)</h1>
+
+        <ul class='li1'> 
+            <li>Premier élément de liste (elt LI N°1.1)
+                <ul class='li2'>
+                    <li>Une autre liste (elt LI N°2.1)</li>
+                    <li>Avec notre (elt LI N°2.2) <span> span </span></li>
+                </ul>
+            </li>
+            <li>deuxiéme élément de liste li (elt LI N°1.2)</li>
+            <li>Troisiéme élément de liste li (elt LI N°1.3)</li>
+        </ul>
+        <script>
+            $(document).ready(function(){
+                $('span').parentsUntil('.li1').css({
+                    'color': 'blue',
+                    'border': '2px solid orange'
+                });
+            });
+        </script>
+    </body>
+</html>
