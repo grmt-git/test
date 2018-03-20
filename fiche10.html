@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Découverte de jQuery</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .titre {color:blue;}
+        </style>
+    </head>
+    <body>
+        <h1 class="titre">Manipulation de DOM</h1>
+        <h2 class="t">Utilisation de attr()</h2>
+        <a>Un lien</a><br>
+        <label for="c">Cochez moi/ Décochez moi</label>
+        <input type="checkbox" id="c" checked="checked"><br>
+        
+        <span id="test"></span>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script>
+            $(document).ready(function(){
+//                var atth1 = $('h1').attr('class');
+//                $("#test").text("valeur  de la classe de h1 : " + atth1);
+//                $("h2").attr('class','titre');
+//                $("a").attr('href', 'http://pierre-giraud.com', target='blank');
+                  $("#c").change(function(){
+                      var v = $(this);
+                      $("#test").html(
+                              "valeur attribut : " + v.attr('checked') + 
+                              "<br>Valeur propriété : " + v.prop('checked')
+                        );
+                  });
+            });
+        </script>
+    </body>
+</html>
