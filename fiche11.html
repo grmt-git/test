@@ -12,32 +12,26 @@ and open the template in the editor.
         <style>
             html,body,h1,ul,li,span {
                 color:black;
-                border:2px solid green;
-                padding:5px;
-                margin:5px;
-                display:block;
             }
         </style>
     </head>
     <body>
-        <h1>Manipulation de DOM (elt h1)</h1>
-        <ul class='l1'>(elt ul n°1 class=l1)
-            <li>Premier élément de liste (elt li n°1.1)</li>
-            <li>élément li contenant (elt li n°1.2)
-                <ul  class='l2'>(elt ul n°2 class=l2)
-                    <li>(elt li n°2-1)</li>
-                    <li>(elt li n°2-2)<span> span </span></li>
-                </ul>
-            </li>
-            <li>Troisiéme élément de liste (elt li n°1-3)</li>
-        </ul>    
+        <h1>Manipulation de DOM</h1>
+        <p class="p1">Un premier paragraphe</p>
+        <ul>Liste UL
+            <li class="li1">Premier élément de liste </li>
+            <li>Second élément de liste</li>
+            <li>Troisiéme élément de liste</li>
+            <li class="li4">Elément 4 de liste</li>
+        </ul>
+         <p class="p2">Un second paragraphe</p>
+         <p class="p3">Un autre paragraphe</p>
              <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
              <script>
                  $(document).ready(function(){
-                     $('span').parentsUntil('.l1').css({
-                         'color': 'blue',
-                         'border': '2px solid orange'
-                     });
+                     $('.p3').prev().css('color', 'red');
+                     $('.p2').prevAll().css('color', 'purple');
+                     $('.li4').prevUntil('.li1').css('color', 'orange');
                  });
              </script>
     </body>
